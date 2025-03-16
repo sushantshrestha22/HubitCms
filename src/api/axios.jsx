@@ -4,7 +4,7 @@ import { API_URL } from "../constants/constant";
 const axiosInstance = axios.create({
   baseURL: API_URL,
   // baseURL: "https://192.168.16.240:5005/",
-  withCredentials: true, // Include credentials for cross-origin requests
+  Credentials: true, // Include credentials for cross-origin requests
 });
 
 // Add a request interceptor

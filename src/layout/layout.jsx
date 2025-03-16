@@ -55,34 +55,31 @@ export default function Layout() {
       <main className="w-full">
         <SidebarInset>
           <div className="flex justify-between items-center p-4 border-b border-gray-200 ">
-            <SidebarTrigger className="bg-[#1E4B8F]" />
-            <div className="flex gap-2 w-full max-sm:px-10 sm:justify-center items-center mt-2 flex-wrap">
+            <SidebarTrigger className="" />
+            {/* <div className="flex gap-2 w-full max-sm:px-10 sm:justify-center items-center mt-2 flex-wrap">
               <Button
                 variant="link"
                 className="text-xs font-bold bg-gradient-to-r from-primary to-accent text-white"
               >
-                {/* {currentTenure?.title} */} hello
+                {currentTenure?.title} hello
               </Button>
               <Button
                 variant="link"
                 className="text-xs font-bold bg-gradient-to-r from-primary to-accent  text-white"
               >
-                {/* {nepaliDateConverter} B.S, {Time} */} world
+                {nepaliDateConverter} B.S, {Time} world
               </Button>
               <Button
                 variant="link"
                 className="text-xs font-bold bg-gradient-to-r from-primary to-accent text-white"
               >
-                {/* {formattedDate} A.D  */} 1234
+                {formattedDate} A.D  1234
               </Button>
-            </div>
+            </div> */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center cursor-pointer">
                 <Avatar>
-                  <AvatarImage
-                    src={Logo}
-                    alt="error Image"
-                  />
+                  <AvatarImage src={Logo} alt="error Image" />
                   <AvatarFallback>
                     {/* {user?.fullName
                       ? user?.fullName.split(" ")[0][0].toUpperCase()
@@ -90,11 +87,12 @@ export default function Layout() {
                     {user?.fullName
                       ? user?.fullName.split(" ")[1][0].toUpperCase()
                       : ""} */}
-                      SU
+                    SU
                   </AvatarFallback>
                 </Avatar>
-                <Button className="max-sm:hidden text-sm font-semibold text-gray-800 p-1 bg-white">
-                  {/* {user?.fullName}   */} sushant shrestha
+                <Button className="max-sm:hidden text-sm font-semibold text-gray-800 p-1 bg-white hover:bg-white shadow-none">
+                  {/* {user?.fullName} */}
+                   sushant shrestha
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>

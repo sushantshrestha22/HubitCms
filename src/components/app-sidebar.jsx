@@ -34,6 +34,8 @@ import { useQuery } from "@tanstack/react-query";
 import Loading from "./loading";
 // import "@/App.css";
 import { API_URL } from "@/constants/constant";
+
+import Logo from "@/assets/images/logo.png";
 // Menu items.
 
 export function AppSidebar() {
@@ -48,95 +50,95 @@ export function AppSidebar() {
   };
 
   //contact
-  const getContacts = async () => {
-    const data = await fetchData("api/contact");
-    return data;
-  };
+  // const getContacts = async () => {
+  //   const data = await fetchData("api/contact");
+  //   return data;
+  // };
 
-  const {
-    data: contactData,
-    isLoading,
-    isError,
-    error,
-  } = useQuery({
-    queryKey: ["contact"], // Change the key to contacts
-    queryFn: () => getContacts(),
-  });
+  // const {
+  //   data: contactData,
+  //   isLoading,
+  //   isError,
+  //   error,
+  // } = useQuery({
+  //   queryKey: ["contact"], // Change the key to contacts
+  //   queryFn: () => getContacts(),
+  // });
 
-  console.log(contactData);
+  // console.log(contactData);
   //membership
-  const getMemberShip = async () => {
-    const data = await fetchData("api/membership");
-    return data;
-  };
+  // const getMemberShip = async () => {
+  //   const data = await fetchData("api/membership");
+  //   return data;
+  // };
 
-  const {
-    data: membershipData,
-    isLoading: memberLoading,
-    isError: isErrorMember,
-    error: errorMember,
-  } = useQuery({
-    queryKey: ["membership"], // Change the key to contacts
-    queryFn: () => getMemberShip(),
-  });
+  // const {
+  //   data: membershipData,
+  //   isLoading: memberLoading,
+  //   isError: isErrorMember,
+  //   error: errorMember,
+  // } = useQuery({
+  //   queryKey: ["membership"], // Change the key to contacts
+  //   queryFn: () => getMemberShip(),
+  // });
 
   //setting
-  const getSetting = async () => {
-    const data = await fetchData("api/settings");
-    return data[0];
-  };
+  // const getSetting = async () => {
+  //   const data = await fetchData("api/settings");
+  //   return data[0];
+  // };
 
-  const {
-    data: settingData,
-    isLoading: settingLoading,
-    isError: isErrorsetting,
-    error: errorsetting,
-  } = useQuery({
-    queryKey: ["setting"], // Change the key to contacts
-    queryFn: () => getSetting(),
-  });
+  // const {
+  //   data: settingData,
+  //   isLoading: settingLoading,
+  //   isError: isErrorsetting,
+  //   error: errorsetting,
+  // } = useQuery({
+  //   queryKey: ["setting"], // Change the key to contacts
+  //   queryFn: () => getSetting(),
+  // });
 
-  const tenure = settingData?.tenure?.id;
+  // const tenure = settingData?.tenure?.id;
 
   //tenures
-  const getTenures = async () => {
-    const data = await fetchData("api/tenures");
-    return data;
-  };
+  // const getTenures = async () => {
+  //   const data = await fetchData("api/tenures");
+  //   return data;
+  // };
 
-  const {
-    data: tenuresData,
-    isLoading: tenuresLoading,
-    isError: isErrortenures,
-    error: errortenures,
-  } = useQuery({
-    queryKey: ["tenures"], // Change the key to contacts
-    queryFn: () => getTenures(),
-  });
+  // const {
+  //   data: tenuresData,
+  //   isLoading: tenuresLoading,
+  //   isError: isErrortenures,
+  //   error: errortenures,
+  // } = useQuery({
+  //   queryKey: ["tenures"], // Change the key to contacts
+  //   queryFn: () => getTenures(),
+  // });
 
-  if (isLoading || memberLoading || tenuresLoading || settingLoading) {
-    return (
-      <div>
-        <Loading />
-      </div>
-    );
-  }
+  // if (isLoading || memberLoading || tenuresLoading || settingLoading) {
+  //   return (
+  //     <div>
+  //       <Loading />
+  //     </div>
+  //   );
+  // }
 
-  if (isError || isErrorMember || isErrortenures || isErrorsetting) {
-    return (
-      <div>
-        <div>Error:{"An error occured"}</div>
-      </div>
-    );
-  }
+  // if (isError || isErrorMember || isErrortenures || isErrorsetting) {
+  //   return (
+  //     <div>
+  //       <div>Error:{"An error occured"}</div>
+  //     </div>
+  //   );
+  // }
 
-  const contactResult = contactData?.filter(
-    (item) => item.status === "pending"
-  ).length;
+  // const contactResult = contactData?.filter(
+  //   (item) => item.status === "pending"
+  // ).length;
 
-  const memberResult = membershipData?.filter(
-    (item) => item.status === "pending"
-  ).length;
+  // const memberResult = membershipData?.filter(
+  //   (item) => item.status === "pending"
+  // ).length;
 
   const items = [
     {
@@ -201,13 +203,13 @@ export function AppSidebar() {
       title: "Contact",
       url: "/contact",
       icon: MdOutlinePermContactCalendar,
-      notify: contactResult,
+      // notify: contactResult,
     },
     {
       title: "Membership",
       url: "/membership",
       icon: IdCard,
-      notify: memberResult,
+      // notify: memberResult,
     },
     {
       title: "Users",
@@ -226,12 +228,14 @@ export function AppSidebar() {
       <Sidebar>
         <SidebarContent className="custom-scrollbar">
           <SidebarGroup>
-            <SidebarGroupLabel className="rounded-lg">
-              <img
-                src={`${API_URL}/${settingData.logo}`}
+            <SidebarGroupLabel className=" text-secondary font-bold  w-full">
+              {/* <img
+                // src={`${API_URL}/${settingData.logo}`}
+                src={Logo}
                 alt="logoError"
-                className="w-full border rounded-lg bg-primary-foreground"
-              />
+                className="border object-center object-cover rounded-lg bg-primary-foreground"
+              /> */}
+              Hub IT CMS
             </SidebarGroupLabel>
 
             {/* <hr className="border-2" /> */}

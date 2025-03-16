@@ -11,7 +11,7 @@ import {
 } from "../ui/card";
 import { Button } from "../ui/button";
 import { useForm } from "react-hook-form";
-import { LogInSchema } from "@/schemas/LoginSchema";
+import { LogInSchema } from "@/schema/LoginSchema";
 import { postData } from "@/query/query";
 import { useAuth } from "@/context/context"; // Ensure this is correctly imported
 import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import eye icons
@@ -32,14 +32,14 @@ const LoginForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await postData("/api/auth/login", data);
+      const response = await postData("/admin/login", data);
 
       console.log(response);
 
-      if (response.token) {
+      if (response.accesstoken) {
         await checkAuth();
 
-        const access_token = response.token;
+        const access_token = response.accesstoken;
         storeToken(access_token); // Sync auth state with backend
         navigate("/");
         toast.success("Login successful!");
@@ -69,12 +69,12 @@ const LoginForm = () => {
           </CardHeader>
           <CardContent>
             <div>
-              <label htmlFor="email">Email:</label>
+              <label htmlFor="username">Username:</label>
               <input
-                type="email"
-                id="email"
-                name="email"
-                {...register("email")}
+                type="username"
+                id="username"
+                name="username"
+                {...register("username")}
                 className="flex h-10 w-full my-2 rounded-md border border-input bg-background px-3 py-2 text-black"
               />
               {errors.email && (
@@ -107,7 +107,7 @@ const LoginForm = () => {
               <Button
                 type="submit"
                 variant="ghost"
-                className="w-full   hover:bg-[#ca285b]"
+                className="w-full "
               >
                 Login
               </Button>

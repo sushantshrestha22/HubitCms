@@ -3,13 +3,13 @@ import React, { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./layout/layout";
 import Error from "./components/error";
-// import LoginForm from "./components/(auth)/login";
+import LoginForm from "./components/(auth)/login";
 import Logout from "./components/(auth)/logout";
 import NotFound from "./components/not-found";
 import Home from "./components/(main)/home/home";
 import Loading from "./components/loading";
 import Dashboard from "./components/(main)/dashboard/page";
-// import LoginLayout from "./layout/loginLayout";
+import LoginLayout from "./layout/loginLayout";
 
 const router = createBrowserRouter([
   {
@@ -362,16 +362,16 @@ const router = createBrowserRouter([
       // },
     ],
   },
-  // {
-  //   element: <LoginLayout />,
-  //   errorElement: <Error />,
-  //   children: [
-  //     {
-  //       path: "/login",
-  //       element: <LoginForm />,
-  //     },
-  //   ],
-  // },
+  {
+    element: <LoginLayout />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/login",
+        element: <LoginForm />,
+      },
+    ],
+  },
   {
     path: "/logout",
     element: <Logout />,
